@@ -25,28 +25,123 @@ var go_end_page = function () {
     } else if (end_charater == 'D') {
         result_content = result[3];
     }
+    // 이름, name
+    // 학년, year
+    // 고을이름, city
+    // 핸드폰번호, hp
+    // 국내선교팀 들어오고 싶은지, check
 
-    $(".card-title").html(result_content);
+    var check_content = `
+    <div class="row check-info">
+        <div class="col-12 pb-3">
+        <i class="fas fa-poll-h"></i>. 아래 정보를 작성해 주시면<br>
+            추첨을 통해 소정의 상품을 드리겠습니다. <br>
+            감사합니다.
+        </div>
+        <div class="col-3 pb-3">
+        이름
+        </div> 
+        <div class="col-9 pb-3">
+        <input type="text" id="name"/>
+        </div>
+
+        <div class="col-3 pb-3">
+        학년
+        </div> 
+        <div class="col-9 pb-3">
+        <input type="text" id="year"/>
+        </div>
+   
+
+
+        <div class="col-3 pb-3">
+        고을이름
+        </div> 
+        <div class="col-9 pb-3">
+        <input type="text" id="city"/>
+        </div>
+   
+
+
+        <div class="col-3 pb-3">
+        핸드폰번호
+        </div> 
+        <div class="col-9 pb-3">
+        <input type="text" id="hp"/>
+        </div>
+   
+
+        <div class="col-12 pb-5 check-question">
+        국내선교팀에 들어오고 싶으신가요? 
+        <input type="checkbox" id="check"/>
+        </div> 
+
+        <div class=" col-12 text-center pb-2">
+        <button type="button" class="btn btn-primary col-12 send">
+              <i class="fas fa-paper-plane"></i>
+        </button>
+         </div>
+    </div>
+    `
+
+
+    result_show_content = `
+        <div class="row result_show">
+            <div class="col-12 text-center">
+                당신은 ${end_charater} 타입 입니다.
+            </div>
+        </div>
+    ` 
+    ;
+   $(".card-title").html(
+    result_show_content + 
+        result_content +
+        "<hr>" +
+        check_content
+    );
     $(".card-text").hide();
 
-    save_data();
+    $(".check-question").on("click", function(){
+        $("#check").attr("checked",true);
+    });
+   
+    $(".send").on("click", function(){
+        save_data();
+    });
 }
 
-var save_data = function() {
+
+
+
+var save_data = function () {
     var config = {
         apiKey: "AIzaSyCUrv5r8SS3z7GbCxP177xQ8HdCj2uuU_I",
         authDomain: "dvmoomoodv-project.firebaseapp.com",
         databaseURL: "https://dvmoomoodv-project.firebaseio.com",
         storageBucket: "dvmoomoodv-project.appspot.com"
-      };
-      firebase.initializeApp(config);
-      var database = firebase.database();
-      var name = "test";
-      firebase.database().ref('church/survey/test/' + name).set({
-        name : name,
+    };
+    firebase.initializeApp(config);
+    var database = firebase.database();
+    var name = "test";
+
+    // 이름, name
+    // 학년, year
+    // 고을이름, city
+    // 핸드폰번호, hp
+    // 국내선교팀 들어오고 싶은지, check
+    firebase.database().ref('church/survey/test/' + $("#name").val()).set({
+        name: $("#name").val(),
+        year: $("#year").val(),
+        city: $("#city").val(),
+        hp: $("#hp").val(),
+        hope: $("#check").is(":checked"),
         step_history: step_history,
-        type : end_charater
-      });
+        type: end_charater
+    });
+    console.log("save success data");
+
+    alert("설문이 완료되었습니다. \n감사합니다.");
+    location.href="./index.html";
 }
 
 
@@ -265,7 +360,7 @@ var action = function (check) {
     }
 
 
-    
+
 
     if (!is_end) {
         var question_info = {

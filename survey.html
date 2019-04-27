@@ -11,6 +11,7 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Dokdo" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <style>
@@ -19,6 +20,7 @@
             padding : 0;
             font-family: 'Noto Sans KR', sans-serif;
         }
+
         body {
             position: relative;
             background-color: #DD333366;
@@ -43,17 +45,20 @@
         .info .content{
             font-size: 18px;
         }
+
         .card {
-            max-width: 1200px;
+            max-width: 800px;
             margin: 130px auto;
             -webkit-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.35);
             -moz-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.35);
             box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.35);
         }
+
         .card .card-title {
             font-weight: bold;
             font-size: 20px;
         }
+
         .card .card-text .btn {
             border-radius: 100%;
             background-color: #DD3333BB;
@@ -61,6 +66,7 @@
             max-width: 150px;
             height: 150px;
         }
+
         .card .card-text .btn:hover,
         .card .card-text .btn:focus,
         .card .card-text .btn:visited,
@@ -71,10 +77,40 @@
             -moz-box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.75);
             box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.75);
         }
+
         .card .card-text .btn i {
             font-size: 52px;
         }
+
         .card .card-text.count{
+
+        }
+
+        hr{
+            margin-bottom: 3rem;
+        }
+
+        .card .check-info{
+            font-weight: normal;
+            font-size: 16px;
+            line-height: 24px;
+        }
+
+        .card .check-info .btn {
+            border-radius: 100%;
+            background-color: #DD3333BB;
+            border: none;
+            max-width: 100px;
+            height: 100px;
+        }
+        .card .check-info .btn i{
+           font-size: 32px;
+        }
+
+        .result_show {
+            font-family: 'Dokdo' !important;
+            font-size: 32px;
+            line-height: 120px;
         }
     </style>
     <title>Survey Template</title>
@@ -89,26 +125,28 @@
                    
             </p>
             <p class="content">
-                    국내 선교팀 사역 페스티벌 행사용 페이지 입니다.
+                    설명 설명 설명 설명
             </p>
       
     </div>
     <div class="card">
         <div class="card-body row">
             <div class="card-title col-12 mb-5">
-               국내 선교팀 사역 페스티벌 "_________" 페이지 입니다. 
+                
             </div>
             <div class="card-text col-md-6 text-center py-5">
-                <button type="button" class="btn btn-primary col-12">
-                    <a href = "./index.html"><i class="fas fa-check-circle"></i></a>
+                <button type="button" class="btn btn-primary col-12" onclick="action('y')">
+                    <i class="fas fa-check"></i>
                 </button>
             </div>
             <div class="card-text col-md-6 text-center py-5">
-                <button type="button" class="btn btn-primary col-12">
+                <button type="button" class="btn btn-primary col-12" onclick="action('n')">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
-           
+            <div class="card-text step col-12 text-right">
+                
+            </div>
         </div>
     </div>
 
@@ -117,14 +155,24 @@
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-    </script>
+    <script
+  src="https://code.jquery.com/jquery-3.4.0.js"
+  integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo="
+  crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
     </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+    <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase.js"></script>
+    <script src="./question.js"></script>
+    <script src="./result.js"></script>
+    <script src="./action.js"></script>
+    <script>
+        $(function() {
+            load_question();
+        });
     </script>
 </body>
 

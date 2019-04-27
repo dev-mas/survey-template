@@ -22,28 +22,10 @@
 
         body {
             position: relative;
-            background-color: #DD333366;
+            background-color: #DD3333;
             padding: 1rem;
         }
-        .info{
-            
-            position: absolute;
-            height: 200px;
-            top: 0;
-            left: 0;
-            right : 0;
-            padding: 2rem;
-            background-color: #DD3333;
-            color: #ffffff;
-            
-           
-        }
-        .info .title{
-            font-size: 24px;
-        }
-        .info .content{
-            font-size: 18px;
-        }
+       
 
         .card {
             max-width: 1200px;
@@ -55,7 +37,9 @@
 
         .card .card-title {
             font-weight: bold;
-            font-size: 20px;
+            font-size: 32px;
+            line-height: 56px;
+            
         }
 
         .card .card-text .btn {
@@ -90,34 +74,20 @@
 
 <body>
 
-    <div class="info">
-            
-            <p class="title">
-                    <i class="fas fa-cross"></i>. 국내선교팀 설문조사
-                   
-            </p>
-            <p class="content">
-                    설명 설명 설명 설명
-            </p>
-      
-    </div>
+   
     <div class="card">
-        <div class="card-body row">
-            <div class="card-title col-12 mb-5">
-                
+        <div class="card-body row p-5">
+            <div class="card-title text-center col-12 mb-5">
+                <p>
+                국내 선교팀 입니다. 
+                <br>
+                설문조사에 참여하실분은 아래 버튼을 눌러주세요. 
+            </p>
             </div>
-            <div class="card-text col-md-6 text-center py-5">
-                <button type="button" class="btn btn-primary col-12" onclick="action('y')">
-                    <i class="fas fa-check"></i>
+            <div class="card-text col-md-12 text-center pb-3">
+                <button type="button" class="btn btn-primary col-12" >
+                        <i class="fas fa-play"></i>
                 </button>
-            </div>
-            <div class="card-text col-md-6 text-center py-5">
-                <button type="button" class="btn btn-primary col-12" onclick="action('n')">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <div class="card-text step col-12 text-right">
-                
             </div>
         </div>
     </div>
@@ -136,14 +106,13 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
-    <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase.js"></script>
-    <script src="./question.js"></script>
-    <script src="./result.js"></script>
-    <script src="./action.js"></script>
+
     <script>
-        $(function() {
-            load_question();
-        });
+        $(function(){
+            $("button").click(function(){
+                location.href="./survey.html";
+            });
+        })
     </script>
 </body>
 
