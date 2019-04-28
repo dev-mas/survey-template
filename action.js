@@ -114,12 +114,7 @@ var go_end_page = function () {
 
 
 var save_data = function () {
-    var config = {
-        apiKey: "AIzaSyCUrv5r8SS3z7GbCxP177xQ8HdCj2uuU_I",
-        authDomain: "dvmoomoodv-project.firebaseapp.com",
-        databaseURL: "https://dvmoomoodv-project.firebaseio.com",
-        storageBucket: "dvmoomoodv-project.appspot.com"
-    };
+//    
     firebase.initializeApp(config);
     var database = firebase.database();
     var name = "test";
