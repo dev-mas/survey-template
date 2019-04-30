@@ -15,15 +15,20 @@ var end = function (value) {
 
 var go_end_page = function () {
     var result_content = "";
+    var end_content = "";
 
     if (end_charater == 'A') {
         result_content = result[0];
+	end_content = "일요일 아침 당신의 속마음";
     } else if (end_charater == 'B') {
         result_content = result[1];
+	end_content = "어우 차가워 네 마음이..."
     } else if (end_charater == 'C') {
         result_content = result[2];
+	end_content = "우리가 주의 자녀인 것에 대해 자랑스러워 하자!"
     } else if (end_charater == 'D') {
         result_content = result[3];
+	end_content = "(주)하늘나라 지분을 얼마나 가지시려고..."
     }
     // 이름, name
     // 학년, year
@@ -88,7 +93,7 @@ var go_end_page = function () {
     result_show_content = `
         <div class="row result_show">
             <div class="col-12 text-center">
-                당신은 ${end_charater} 타입 입니다.
+               Type ${end_charater} ${end_content}
             </div>
         </div>
     ` 
